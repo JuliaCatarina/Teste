@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MauáLab</title>
+</head>
+<body>
+<h1><marquee direction="down">WebLab</marquee></h1>
+<p>Contole de Led RGB simples</p>
+<ul>
+    <li>Vermelho</li>
+    <button id="ON_vermelho" onclick="myFunction2()">ON</button>
+    <button id="OFF_vermelho" onclick="myFunction2()">OFF</button>
+    <p id="status_vermelho">Status</p>
+    <li>Verde</li>
+    <button id="ON_verde" onclick="myFunction2()">ON</button>
+    <button id="OFF_verde" onclick="myFunction2()">OFF</button>
+    <p id="status_verde">Status</p>
+    <li>Azul</li>
+    <button id="ON_azul" onclick="myFunction2()">ON</button>
+    <button id="OFF_azul" onclick="myFunction2()">OFF</button>
+    <p id="status_azul">Status</p>
+     </ul>
+             <script>
+        function myFunction2() {
+          var x2 = document.getElementById("myDIV2");
+          if (x2.innerHTML === "OFF") {
+            x2.innerHTML = "ON";
+          } else {
+            x2.innerHTML = "OFF";
+          }
+        }
+        </script>
+        <script>
+        function myFunction3() {
+          var x3 = document.getElementById("myDIV3");
+          if (x3.innerHTML === "OFF") {
+            x3.innerHTML = "ON";
+          } else {
+            x3.innerHTML = "OFF";
+          }
+        }
+        </script>
+
+<script src="script.js"></script>
+</body>
+</html>

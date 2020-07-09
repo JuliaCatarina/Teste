@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MauáLab</title>
+</head>
+<body>
+<h1><marquee direction="down">WebLab</marquee></h1>
+<p>Contole de Led RGB simples</p>
+<ul>
+    <li>Vermelho</li>
+    <button id="ON_vermelho">ON</button>
+    <button id="OFF_vermelho">OFF</button>
+    <p id="status_vermelho">Status</p>
+    <li>Verde</li>
+    <button id="ON_verde">ON</button>
+    <button id="OFF_verde">OFF</button>
+    <p id="status_verde">Status</p>
+    <li>Azul</li>
+    <button id="ON_azul">ON</button>
+    <button id="OFF_azul">OFF</button>
+    <p id="status_azul">Status</p>
+     </ul>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  var vermelho = 0;
+  var verde = 0;
+  var azul = 0;
+  var on_vermelho = document.querySelector("#ON_vermelho");
+  var off_vermelho = document.querySelector("#OFF_vermelho");
+  var status_vermelho = document.querySelector("#status_vermelho");
+  var on_verde = document.querySelector("#ON_verde");
+  var off_verde = document.querySelector("#OFF_verde");
+  var status_verde = document.querySelector("#status_verde");
+  var on_azul = document.querySelector("#ON_azul");
+  var off_azul = document.querySelector("#OFF_azul");
+  var status_azul = document.querySelector("#status_azul");
+  
+  on_vermelho.addEventListener("click", function () {
+      vermelho = 1;
+      status_vermelho.textContent = "ON";
+      socket.emit('status', 'vermelho_1');
+
+  });
+  off_vermelho.addEventListener("click", function () {
+      vermelho = 0;
+      status_vermelho.textContent = "OFF";
+      
+  });
+  on_verde.addEventListener("click", function () {
+      verde = 1;
+      status_verde.textContent = "ON";
+      socket.emit('status', 'verde_1');
+  });
+  off_verde.addEventListener("click", function () {
+      verde = 0;
+      status_verde.textContent = "OFF";
+      socket.emit('status', 'verde_0');
+  });
+  on_azul.addEventListener("click", function () {
+      azul = 1;
+      status_azul.textContent = "ON";
+      socket.emit('status', 'azul_1');
+  });
+  off_azul.addEventListener("click", function () {
+      azul = 0;
+      status_azul.textContent = "OFF";
+      socket.emit('status', 'azul_0');
+  });
+  </script>
+</body>
+</html>
